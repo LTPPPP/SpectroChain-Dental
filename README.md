@@ -3,37 +3,38 @@
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![Real-Time](https://img.shields.io/badge/Data-100%25%20Real--Time-green.svg)]()
 [![Evaluation](https://img.shields.io/badge/Evaluation-Comprehensive-orange.svg)]()
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)]()
 
 > **Advanced real-time performance evaluation system for SpectroChain-Dental blockchain platform with physical verification capabilities.**
 
 ## 🎯 Overview
 
-SpectroChain-Dental là một nền tảng blockchain hybrid kết hợp công nghệ blockchain với xác thực phổ học vật lý để đảm bảo tính xác thực của vật liệu nha khoa. Hệ thống evaluation này cung cấp **đánh giá hiệu suất toàn diện 100% real-time** so sánh với các hệ thống truyền thống.
+SpectroChain-Dental is a revolutionary hybrid blockchain platform that combines blockchain technology with physical spectral authentication to ensure the authenticity of dental materials. This evaluation system provides **comprehensive 100% real-time performance assessment** compared to traditional systems.
 
 ## ✨ Key Features
 
-- 🚀 **100% Real-time Calculation** - Không có hardcoded values
-- 🏁 **Multi-system Benchmark** - So sánh 3 hệ thống (Centralized, Blockchain-only, SpectroChain-Dental)
-- 🛡️ **Security Penetration Testing** - STRIDE methodology với actual attack simulation
-- 🔬 **Physical Verification** - Spectral analysis với ML algorithms
-- 📊 **Professional Visualization** - 5 comprehensive charts
-- 🎯 **Comprehensive Scoring** - Weighted metrics với normalization
+- 🚀 **100% Real-time Calculation** - No hardcoded values, all metrics computed live
+- 🏁 **Multi-system Benchmark** - Comparative analysis of 3 systems (Centralized, Blockchain-only, SpectroChain-Dental)
+- 🛡️ **Security Penetration Testing** - STRIDE methodology with actual attack simulation
+- 🔬 **Physical Verification** - Spectral analysis with machine learning algorithms
+- 📊 **Professional Visualization** - 5 comprehensive analytical charts
+- 🎯 **Comprehensive Scoring** - Weighted metrics with normalization
 
 ## 🏆 Performance Results
 
 | System | Overall Score | Throughput (TPS) | Physical Verification | Security Score |
 |--------|---------------|------------------|----------------------|----------------|
-| **🥇 SpectroChain-Dental** | **95.94/100** | 6,431.5 | **98%** | 65/100 |
-| 🥈 Blockchain Only | 51.95/100 | 0.0 | 0% | 100/100 |
-| 🥉 Centralized System | 31.61/100 | 22,503.99 | 0% | 20/100 |
+| ** SpectroChain-Dental** | **95.94/100** | 6,431.5 | **98%** | 65/100 |
+|  Blockchain Only | 51.95/100 | 0.0 | 0% | 100/100 |
+|  Centralized System | 31.61/100 | 22,503.99 | 0% | 20/100 |
 
-**🎯 Kết luận**: SpectroChain-Dental vượt trội **203%** so với hệ thống truyền thống!
+**🎯 Conclusion**: SpectroChain-Dental outperforms traditional systems by **203%**!
 
 ## 📂 Project Structure
 
 ```
 SpectroChain-Dental/
-├── 📊 results/                    # Kết quả đánh giá
+├── 📊 results/                    # Evaluation results
 │   ├── charts/                    # 5 professional charts
 │   ├── data/                      # JSON evaluation results
 │   └── reports/                   # Comprehensive reports
@@ -88,7 +89,7 @@ python run_evaluation.py --show-results
 ### 🎯 Core Metrics
 
 1. **Blockchain Performance**
-   - Throughput (TPS) cho từng function
+   - Throughput (TPS) for each function
    - Latency (ms) measurement
    - CPU/Memory resource usage
 
@@ -127,9 +128,9 @@ weights = {
 
 ### Real-time Benchmark Systems
 
-1. **CentralizedSystem**: SQLite database, threading locks
-2. **BlockchainOnlySystem**: Pure blockchain với mining simulation
-3. **SpectroChainDentalSystem**: Hybrid với spectral verification
+1. **CentralizedSystem**: SQLite database with threading locks
+2. **BlockchainOnlySystem**: Pure blockchain with mining simulation
+3. **SpectroChainDentalSystem**: Hybrid with spectral verification
 
 ### Security Testing
 
@@ -202,18 +203,18 @@ security_metrics = evaluator.security_analysis()
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🏆 Results Summary
+## 🙏 Acknowledgments
 
-```
-🎯 Overall Performance: SpectroChain-Dental leads with 95.94/100
-🚀 Throughput: Competitive 6,431.5 TPS with full verification
-🔬 Physical Verification: Unique 98% accuracy advantage
-🛡️ Security: Comprehensive STRIDE compliance
-📊 Transparency: 100% real-time, auditable results
-```
+- SpectroChain-Dental Development Team
+- Blockchain Research Community
+- Dental Material Verification Standards
+
+## 📞 Contact
+
+- **Project Lead**: [Your Name](mailto:your.email@example.com)
+- **Repository**: [GitHub](https://github.com/your-org/SpectroChain-Dental)
+- **Documentation**: [Wiki](https://github.com/your-org/SpectroChain-Dental/wiki)
 
 ---
 
-**✨ Powered by Real-Time Evaluation Technology**
-
-> *SpectroChain-Dental: Where Blockchain meets Physical Reality* 
+**Made with ❤️ by the SpectroChain-Dental Team** 

@@ -11,7 +11,7 @@ from spectro_blockchain import SpectroChain, Transaction
 from spectral_verification import MaterialDatabase, VerificationEngine, CounterfeitGenerator
 
 class PerformanceMetrics:
-    """Đánh giá hiệu suất hệ thống SpectroChain-Dental"""
+    """Performance evaluation system for SpectroChain-Dental"""
     
     def __init__(self):
         self.blockchain = SpectroChain()
@@ -20,32 +20,32 @@ class PerformanceMetrics:
         self.results = {}
     
     def measure_blockchain_performance(self, num_transactions: int = 1000) -> Dict:
-        """Đo hiệu suất blockchain - Throughput, Latency, CPU, Memory"""
-        print("🔄 Đang đo hiệu suất blockchain...")
+        """Measure blockchain performance - Throughput, Latency, CPU, Memory"""
+        print("🔄 Measuring blockchain performance...")
         
-        # Khởi tạo monitoring
+        # Initialize monitoring
         process = psutil.Process()
         cpu_usage = []
         memory_usage = []
         
-        # Tạo các giao dịch test
+        # Generate test transactions
         transactions = self._generate_test_transactions(num_transactions)
         
-        # Đo throughput và latency
+        # Measure throughput and latency
         latencies = []
         start_time = time.time()
         
         for i, tx in enumerate(transactions):
-            # Đo CPU và Memory mỗi 100 transactions
+            # Measure CPU and Memory every 100 transactions
             if i % 100 == 0:
                 cpu_usage.append(process.cpu_percent())
                 memory_usage.append(process.memory_info().rss / 1024 / 1024)  # MB
             
-            # Đo latency cho từng transaction
+            # Measure latency for each transaction
             tx_start = time.time()
             self.blockchain.add_transaction(tx)
             
-            # Mine block mỗi 10 transactions
+            # Mine block every 10 transactions
             if len(self.blockchain.pending_transactions) >= 10:
                 self.blockchain.mine_pending_transactions("miner1")
             
@@ -59,7 +59,7 @@ class PerformanceMetrics:
         end_time = time.time()
         total_time = end_time - start_time
         
-        # Tính toán metrics
+        # Calculate metrics
         throughput = num_transactions / total_time
         avg_latency = np.mean(latencies)
         avg_cpu = np.mean(cpu_usage) if cpu_usage else 15.5  # Default value
@@ -78,21 +78,21 @@ class PerformanceMetrics:
         return blockchain_metrics
     
     def measure_verification_accuracy(self, num_samples: int = 500) -> Dict:
-        """Đo độ chính xác xác thực vật liệu"""
-        print("🔄 Đang đo độ chính xác xác thực...")
+        """Measure material verification accuracy"""
+        print("🔄 Measuring verification accuracy...")
         
-        # Tạo dataset test
+        # Generate test dataset
         reference_data, test_data, true_labels = self._generate_verification_dataset(num_samples)
         
-        # Thực hiện verification
+        # Perform verification
         results = self.verification_engine.batch_verify(reference_data, test_data, true_labels)
         
-        # Tính HQI (Hit Quality Index)
+        # Calculate HQI (Hit Quality Index)
         hqi_scores = results['similarities']
         hqi_above_threshold = sum(1 for score in hqi_scores if score > 0.95)
         hqi_percentage = (hqi_above_threshold / len(hqi_scores)) * 100
         
-        # Tính ROC curve
+        # Calculate ROC curve
         fpr, tpr, thresholds = roc_curve(true_labels, hqi_scores)
         
         verification_metrics = {
@@ -116,71 +116,71 @@ class PerformanceMetrics:
         return verification_metrics
     
     def analyze_security_metrics(self) -> Dict:
-        """Phân tích bảo mật theo mô hình STRIDE - tính toán thực tế"""
-        print("🔄 Đang phân tích bảo mật...")
+        """Security analysis using STRIDE model - real-time calculation"""
+        print("🔄 Analyzing security...")
         
-        # Test thực tế các khả năng bảo mật
+        # Run actual security capability tests
         security_tests = self._run_security_tests()
         
         security_analysis = {
             "spoofing_resistance": {
                 "score": security_tests["spoofing_score"],
-                "description": "Khả năng chống giả mạo identity và transaction",
+                "description": "Resistance to identity and transaction spoofing",
                 "measures": ["SHA-256 hashing", "Transaction validation", "Identity verification"],
                 "test_results": security_tests["spoofing_details"]
             },
             "tampering_resistance": {
                 "score": security_tests["tampering_score"],
-                "description": "Khả năng chống thay đổi dữ liệu",
+                "description": "Resistance to data modification",
                 "measures": ["Blockchain immutability", "Cryptographic hashing", "Spectral verification"],
                 "test_results": security_tests["tampering_details"]
             },
             "repudiation_resistance": {
                 "score": security_tests["repudiation_score"],
-                "description": "Khả năng chống phủ nhận giao dịch",
+                "description": "Resistance to transaction repudiation",
                 "measures": ["Transaction logging", "Timestamp verification", "Digital signatures"],
                 "test_results": security_tests["repudiation_details"]
             },
             "information_disclosure_protection": {
                 "score": security_tests["disclosure_score"],
-                "description": "Bảo vệ thông tin nhạy cảm",
+                "description": "Protection of sensitive information",
                 "measures": ["Data hashing", "Access control", "Permissioned network"],
                 "test_results": security_tests["disclosure_details"]
             },
             "dos_resistance": {
                 "score": security_tests["dos_score"],
-                "description": "Khả năng chống tấn công từ chối dịch vụ",
+                "description": "Resistance to denial of service attacks",
                 "measures": ["Rate limiting", "Load balancing", "Redundant nodes"],
                 "test_results": security_tests["dos_details"]
             },
             "privilege_elevation_protection": {
                 "score": security_tests["privilege_score"],
-                "description": "Chống leo thang đặc quyền",
+                "description": "Protection against privilege escalation",
                 "measures": ["RBAC implementation", "Permission validation", "Multi-signature"],
                 "test_results": security_tests["privilege_details"]
             }
         }
         
-        # Tính điểm tổng từ kết quả test thực tế
+        # Calculate overall score from actual test results
         total_score = np.mean([metric["score"] for metric in security_analysis.values()])
         security_analysis["overall_security_score"] = round(total_score, 2)
         
         return security_analysis
     
     def comparative_analysis(self) -> Dict:
-        """So sánh với các hệ thống khác - TÍNH TOÁN REAL-TIME"""
-        print("🔄 Đang thực hiện phân tích so sánh REAL-TIME...")
+        """Comparative analysis with other systems - REAL-TIME CALCULATION"""
+        print("🔄 Performing REAL-TIME comparative analysis...")
         
-        # Import và chạy benchmark thực tế
+        # Import and run actual benchmarks
         from benchmarks.real_time.benchmark_systems import RealTimeBenchmark
         
         print("   🚀 Initializing real-time benchmark systems...")
         benchmark = RealTimeBenchmark()
         
-        # Chạy benchmark cho tất cả hệ thống
+        # Run benchmark for all systems
         real_results = benchmark.run_comprehensive_comparison()
         
-        # Format kết quả theo chuẩn của comparative analysis
+        # Format results according to comparative analysis standard
         comparison = {}
         
         for system_key, system_data in real_results.items():

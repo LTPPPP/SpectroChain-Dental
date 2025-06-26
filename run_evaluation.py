@@ -3,11 +3,12 @@
 🚀 SpectroChain-Dental Evaluation Runner
 =========================================
 
-Script chính để chạy đánh giá hiệu suất toàn diện cho SpectroChain-Dental.
-Tất cả dữ liệu được tính toán real-time, không có hardcoded values.
+Main script for running comprehensive performance evaluation of SpectroChain-Dental.
+All data is calculated in real-time with no hardcoded values.
 
 Author: SpectroChain-Dental Team
 Version: 2.0 (Real-Time Edition)
+License: MIT
 """
 
 import sys
@@ -17,10 +18,10 @@ import time
 from pathlib import Path
 
 def setup_paths():
-    """Thiết lập đường dẫn Python paths"""
+    """Setup Python paths for module imports"""
     current_dir = Path(__file__).parent.absolute()
     
-    # Thêm các thư mục vào Python path
+    # Add directories to Python path
     paths_to_add = [
         current_dir,
         current_dir / "src",
@@ -34,12 +35,12 @@ def setup_paths():
             sys.path.insert(0, str(path))
 
 def run_full_evaluation():
-    """Chạy đánh giá toàn diện"""
+    """Run comprehensive evaluation with all metrics"""
     print("🚀 Starting SpectroChain-Dental Full Evaluation...")
     print("=" * 60)
     
     try:
-        # Import và chạy performance metrics
+        # Import and run performance metrics
         from evaluation.metrics.performance_metrics import PerformanceEvaluator
         
         evaluator = PerformanceEvaluator()
@@ -56,7 +57,7 @@ def run_full_evaluation():
     return True
 
 def run_visualization():
-    """Chạy tạo biểu đồ"""
+    """Generate visualization charts"""
     print("\n🎨 Creating visualization charts...")
     print("-" * 40)
     
@@ -77,7 +78,7 @@ def run_visualization():
     return True
 
 def run_benchmark_only():
-    """Chỉ chạy benchmark"""
+    """Run only real-time benchmark"""
     print("🏁 Running real-time benchmark...")
     print("-" * 40)
     
@@ -99,7 +100,7 @@ def run_benchmark_only():
     return True
 
 def show_results():
-    """Hiển thị kết quả nhanh"""
+    """Display quick results summary"""
     print("📊 Quick Results Summary")
     print("-" * 40)
     
@@ -111,7 +112,7 @@ def show_results():
             with open(results_file, 'r', encoding='utf-8') as f:
                 results = json.load(f)
             
-            # Hiển thị summary
+            # Display summary
             summary = results.get('evaluation_summary', {})
             comparative = results.get('comparative_analysis', {})
             
@@ -132,8 +133,28 @@ def show_results():
     except Exception as e:
         print(f"❌ Error reading results: {e}")
 
+def print_banner():
+    """Print application banner"""
+    print("🏗️  SpectroChain-Dental Real-Time Evaluation System")
+    print("=" * 60)
+    print("📋 Features:")
+    print("   ✅ 100% Real-time calculation (no hardcoded values)")
+    print("   ✅ Multi-system benchmark (3 systems)")
+    print("   ✅ Security penetration testing (STRIDE)")
+    print("   ✅ Physical verification (spectral analysis)")
+    print("   ✅ Professional visualization (5 charts)")
+    print("=" * 60)
+
+def print_completion_info(duration):
+    """Print completion information and next steps"""
+    print(f"\n⏱️  Total execution time: {duration:.2f} seconds")
+    print("\n🎯 Next steps:")
+    print("   📊 View charts: results/charts/*.png")
+    print("   📄 Read data: results/data/evaluation_results.json")
+    print("   📝 Check report: results/reports/REAL_TIME_BENCHMARK_SUMMARY.md")
+
 def main():
-    """Main function"""
+    """Main execution function"""
     parser = argparse.ArgumentParser(
         description="SpectroChain-Dental Real-Time Evaluation System",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -160,17 +181,11 @@ Examples:
     # Setup paths
     setup_paths()
     
-    print("🏗️  SpectroChain-Dental Real-Time Evaluation System")
-    print("=" * 60)
-    print("📋 Features:")
-    print("   ✅ 100% Real-time calculation (no hardcoded values)")
-    print("   ✅ Multi-system benchmark (3 systems)")
-    print("   ✅ Security penetration testing (STRIDE)")
-    print("   ✅ Physical verification (spectral analysis)")
-    print("   ✅ Professional visualization (5 charts)")
-    print("=" * 60)
+    # Print banner
+    print_banner()
     
     start_time = time.time()
+    success = True
     
     try:
         if args.show_results:
@@ -188,11 +203,8 @@ Examples:
         end_time = time.time()
         duration = end_time - start_time
         
-        print(f"\n⏱️  Total execution time: {duration:.2f} seconds")
-        print("\n🎯 Next steps:")
-        print("   📊 View charts: results/charts/*.png")
-        print("   📄 Read data: results/data/evaluation_results.json")
-        print("   📝 Check report: results/reports/REAL_TIME_BENCHMARK_SUMMARY.md")
+        if success:
+            print_completion_info(duration)
         
     except KeyboardInterrupt:
         print("\n⏹️  Evaluation interrupted by user")
@@ -201,7 +213,6 @@ Examples:
         if args.verbose:
             import traceback
             traceback.print_exc()
-        sys.exit(1)
 
 if __name__ == "__main__":
     main() 

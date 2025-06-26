@@ -1,42 +1,134 @@
 # 📊 Results Directory
 
-Thư mục này chứa tất cả các kết quả đầu ra từ việc đánh giá hiệu suất SpectroChain-Dental.
+This directory contains all output results from SpectroChain-Dental performance evaluation.
 
-## 📁 Cấu trúc thư mục
+## 📁 Directory Structure
 
 ### `/charts/` 
-- **Chức năng**: Chứa tất cả các biểu đồ trực quan
+- **Function**: Contains all visualization charts
 - **Files**:
-  - `blockchain_performance.png` - Hiệu suất blockchain
-  - `verification_accuracy.png` - Độ chính xác xác thực
-  - `security_analysis.png` - Phân tích bảo mật
-  - `comparative_analysis.png` - So sánh hệ thống
-  - `comprehensive_dashboard.png` - Dashboard tổng hợp
-  - `visualization_charts.py` - Script tạo biểu đồ
+  - `blockchain_performance.png` - Blockchain performance metrics
+  - `verification_accuracy.png` - Verification accuracy analysis
+  - `security_analysis.png` - Security analysis charts
+  - `comparative_analysis.png` - System comparison charts
+  - `comprehensive_dashboard.png` - Overall dashboard
+  - `visualization_charts.py` - Chart generation script
 
 ### `/data/`
-- **Chức năng**: Dữ liệu kết quả dạng JSON/CSV
+- **Function**: Result data in JSON/CSV format
 - **Files**:
-  - `evaluation_results.json` - Kết quả đánh giá chi tiết
-  - `benchmark_results.csv` - Dữ liệu benchmark (sẽ có)
-  - `performance_logs.json` - Logs hiệu suất (sẽ có)
+  - `evaluation_results.json` - Detailed evaluation results
+  - `benchmark_results.csv` - Benchmark data (future)
+  - `performance_logs.json` - Performance logs (future)
 
 ### `/reports/`
-- **Chức năng**: Báo cáo tổng hợp và phân tích
+- **Function**: Comprehensive reports and analysis
 - **Files**:
-  - `REAL_TIME_BENCHMARK_SUMMARY.md` - Tóm tắt benchmark real-time
-  - `technical_report.pdf` - Báo cáo kỹ thuật (sẽ có)
-  - `executive_summary.md` - Tóm tắt điều hành (sẽ có)
+  - `REAL_TIME_BENCHMARK_SUMMARY.md` - Real-time benchmark summary
+  - `technical_report.pdf` - Technical report (future)
+  - `executive_summary.md` - Executive summary (future)
 
-## 🚀 Cách sử dụng
+## 🚀 Usage Guide
 
-1. **Xem biểu đồ**: Mở các file PNG trong `/charts/`
-2. **Phân tích dữ liệu**: Đọc `evaluation_results.json` trong `/data/`
-3. **Đọc báo cáo**: Xem các file markdown trong `/reports/`
+1. **View Charts**: Open PNG files in `/charts/`
+2. **Analyze Data**: Read `evaluation_results.json` in `/data/`
+3. **Read Reports**: View markdown files in `/reports/`
 
-## 📈 Thông tin kết quả mới nhất
+## 📈 Latest Results Information
 
 - **Timestamp**: Real-time generation
 - **Performance Score**: 95.94/100
 - **Security Score**: 65.0/100
-- **Overall Comparison**: SpectroChain-Dental vượt trội 203% 
+- **Overall Comparison**: SpectroChain-Dental outperforms by 203%
+
+## 📊 Chart Types Generated
+
+### 1. Blockchain Performance (4 subplots)
+- **TPS Chart**: Throughput comparison
+- **Latency Chart**: Response time analysis
+- **Resource Usage**: CPU and memory consumption
+- **Function Breakdown**: Per-function performance
+
+### 2. Verification Accuracy
+- **ML Metrics**: Precision, Recall, F1-Score
+- **ROC Curve**: Performance curve analysis
+- **Confusion Matrix**: Classification results
+- **Hit Quality Index**: Material matching accuracy
+
+### 3. Security Analysis
+- **STRIDE Radar**: Six threat categories
+- **Threat Breakdown**: Individual security metrics
+- **Penetration Results**: Attack resistance testing
+- **Security Score**: Overall security rating
+
+### 4. Comparative Analysis
+- **System Comparison**: Three-system performance
+- **Score Breakdown**: Metric-by-metric comparison
+- **Performance Radar**: Multi-dimensional analysis
+- **Throughput vs Security**: Trade-off analysis
+
+### 5. Comprehensive Dashboard
+- **Overall Scores**: Summary ratings
+- **Key Metrics**: Top performance indicators
+- **System Rankings**: Comparative positioning
+- **Performance Summary**: Executive overview
+
+## 🔧 Data Format
+
+### JSON Structure
+```json
+{
+  "blockchain_performance": {
+    "throughput_tps": 6431.5,
+    "latency_ms": 12.3,
+    "cpu_usage_percent": 45.2,
+    "memory_usage_mb": 156.7
+  },
+  "verification_accuracy": {
+    "hit_quality_index": 98.2,
+    "precision": 0.95,
+    "recall": 0.96,
+    "f1_score": 0.955,
+    "auc": 0.98
+  },
+  "security_analysis": {
+    "overall_score": 65.0,
+    "stride_scores": {...}
+  },
+  "comparative_analysis": {
+    "spectrochain_dental": {...},
+    "blockchain_only": {...},
+    "centralized_system": {...}
+  }
+}
+```
+
+## 📝 Report Formats
+
+### Benchmark Summary
+- **Executive Summary**: High-level findings
+- **Performance Analysis**: Detailed metrics
+- **Security Assessment**: Threat analysis
+- **Recommendations**: Improvement suggestions
+
+### Technical Report (Future)
+- **Methodology**: Evaluation approach
+- **Data Analysis**: Statistical findings
+- **System Architecture**: Technical details
+- **Appendices**: Raw data and calculations
+
+## 🎯 Key Performance Indicators
+
+| Metric | SpectroChain-Dental | Target | Status |
+|--------|---------------------|--------|--------|
+| Overall Score | 95.94/100 | >90 | ✅ Excellent |
+| Throughput | 6,431.5 TPS | >1000 | ✅ Excellent |
+| Physical Verification | 98% | >95% | ✅ Excellent |
+| Security Score | 65/100 | >70 | ⚠️ Needs Improvement |
+
+## 🔄 Update Frequency
+
+- **Real-time**: Charts and data updated on each evaluation run
+- **Automatic**: No manual intervention required
+- **Incremental**: Previous results preserved with timestamps
+- **Versioned**: Results tagged with evaluation version 

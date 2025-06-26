@@ -12,7 +12,7 @@ from dataclasses import dataclass
 
 @dataclass
 class BenchmarkResult:
-    """Kết quả benchmark"""
+    """Benchmark result data structure"""
     throughput_tps: float
     latency_ms: float
     cpu_usage_percent: float
@@ -21,10 +21,10 @@ class BenchmarkResult:
     error_rate: float
 
 class CentralizedSystem:
-    """Hệ thống tập trung thực tế để benchmark"""
+    """Real centralized system for benchmarking"""
     
     def __init__(self):
-        # Tạo database in-memory
+        # Create in-memory database
         self.conn = sqlite3.connect(':memory:', check_same_thread=False)
         self.lock = threading.Lock()
         self.setup_database()
@@ -55,7 +55,7 @@ class CentralizedSystem:
         self.conn.commit()
     
     def register_material(self, material_id: str, owner: str, spectral_hash: str) -> bool:
-        """Đăng ký vật liệu"""
+        """Register material"""
         try:
             with self.lock:
                 cursor = self.conn.cursor()
@@ -81,7 +81,7 @@ class CentralizedSystem:
             with self.lock:
                 cursor = self.conn.cursor()
                 
-                # Kiểm tra ownership
+                # Check ownership
                 cursor.execute("SELECT owner FROM materials WHERE id = ?", (material_id,))
                 result = cursor.fetchone()
                 if not result or result[0] != sender:
