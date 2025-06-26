@@ -5,6 +5,13 @@ import random
 from typing import Dict, List, Tuple
 import json
 from sklearn.metrics import precision_score, recall_score, f1_score, roc_auc_score, roc_curve
+import sys
+import os
+
+# Add src and project root directory to Python path for imports
+project_root = os.path.join(os.path.dirname(__file__), '..', '..')
+sys.path.insert(0, os.path.join(project_root, 'src'))
+sys.path.insert(0, project_root)
 
 # Import local modules
 from spectro_blockchain import SpectroChain, Transaction
@@ -703,4 +710,6 @@ if __name__ == "__main__":
     # Save results to JSON file
     with open('evaluation_results.json', 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
-    print(f"\n💾 Results saved to evaluation_results.json") 
+
+# Create alias for compatibility
+PerformanceEvaluator = PerformanceMetrics

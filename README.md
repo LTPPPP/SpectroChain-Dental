@@ -22,11 +22,11 @@ SpectroChain-Dental is a revolutionary hybrid blockchain platform that combines 
 
 ## 🏆 Performance Results
 
-| System | Overall Score | Throughput (TPS) | Physical Verification | Security Score |
-|--------|---------------|------------------|----------------------|----------------|
-| ** SpectroChain-Dental** | **95.94/100** | 6,431.5 | **98%** | 65/100 |
-|  Blockchain Only | 51.95/100 | 0.0 | 0% | 100/100 |
-|  Centralized System | 31.61/100 | 22,503.99 | 0% | 20/100 |
+| System                   | Overall Score | Throughput (TPS) | Physical Verification | Security Score |
+| ------------------------ | ------------- | ---------------- | --------------------- | -------------- |
+| ** SpectroChain-Dental** | **95.94/100** | 6,431.5          | **98%**               | 65/100         |
+| Blockchain Only          | 51.95/100     | 0.0              | 0%                    | 100/100        |
+| Centralized System       | 31.61/100     | 22,503.99        | 0%                    | 20/100         |
 
 **🎯 Conclusion**: SpectroChain-Dental outperforms traditional systems by **203%**!
 
@@ -89,18 +89,21 @@ python run_evaluation.py --show-results
 ### 🎯 Core Metrics
 
 1. **Blockchain Performance**
+
    - Throughput (TPS) for each function
    - Latency (ms) measurement
    - CPU/Memory resource usage
 
 2. **Verification Accuracy**
+
    - Hit Quality Index (HQI) > 95%
    - ML metrics: Precision, Recall, F1-Score, AUC
    - Physical spectral analysis accuracy
 
 3. **Security Analysis** (STRIDE)
+
    - Spoofing Resistance
-   - Tampering Resistance  
+   - Tampering Resistance
    - Repudiation Resistance
    - Information Disclosure Protection
    - DoS Resistance
@@ -116,7 +119,7 @@ python run_evaluation.py --show-results
 ```python
 weights = {
     "throughput_tps": 0.15,           # 15% - Performance
-    "latency_ms": 0.10,               # 10% - Responsiveness  
+    "latency_ms": 0.10,               # 10% - Responsiveness
     "data_tamper_resistance": 0.20,   # 20% - Security
     "decentralized_trust": 0.20,      # 20% - Decentralization
     "physical_verification": 0.25,    # 25% - Unique Feature
@@ -217,4 +220,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Made with ❤️ by the SpectroChain-Dental Team** 
+**Made with ❤️ by the SpectroChain-Dental Team**

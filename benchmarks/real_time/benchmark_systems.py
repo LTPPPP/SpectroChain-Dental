@@ -9,6 +9,11 @@ import psutil
 from concurrent.futures import ThreadPoolExecutor
 import json
 from dataclasses import dataclass
+import sys
+import os
+
+# Add src directory to Python path for imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'src'))
 
 @dataclass
 class BenchmarkResult:
@@ -556,4 +561,4 @@ if __name__ == "__main__":
     with open('benchmark_comparison.json', 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
     
-    print(f"💾 Benchmark results saved to benchmark_comparison.json") 
+    print(f"💾 Benchmark results saved to benchmark_comparison.json")
