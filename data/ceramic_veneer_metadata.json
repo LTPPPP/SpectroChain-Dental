@@ -1,0 +1,16 @@
+{
+  "material_id": "ceramic_veneer",
+  "material_type": "ceramic_veneer",
+  "purity": 1.0,
+  "spectral_hash": "f7366f5714ba041c151d17e28da933dc7c6bcd90103a65ab3f777d5598368b79",
+  "description": "Feldspathic porcelain veneer - thin ceramic shell for cosmetic dentistry",
+  "data_points": 350,
+  "wavelength_range": [
+    100.0,
+    800.0
+  ],
+  "intensity_range": [
+    50.09200775047175,
+    931.2492745555735
+  ]
+}
