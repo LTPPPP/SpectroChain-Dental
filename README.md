@@ -1,223 +1,157 @@
-# 🏗️ SpectroChain-Dental Real-Time Evaluation System
+# SpectroChain Dental - MVP
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
-[![Real-Time](https://img.shields.io/badge/Data-100%25%20Real--Time-green.svg)]()
-[![Evaluation](https://img.shields.io/badge/Evaluation-Comprehensive-orange.svg)]()
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)]()
+This is the MVP (Minimum Viable Product) version of a dental material traceability system using Raman spectroscopy, RFID (simulated), and Blockchain. The system is built with a 4-layer architecture, using FastAPI for the backend and Ethereum/Ganache for the blockchain layer.
 
-> **Advanced real-time performance evaluation system for SpectroChain-Dental blockchain platform with physical verification capabilities.**
+## System Architecture
 
-## 🎯 Overview
+1.  **Physical Layer**: Raman spectroscopy data is simulated using `.csv` files. RFID information (`productID`, `batchID`) is entered manually by users.
+2.  **Connectivity Layer**: The web interface sends data to the backend server via RESTful API.
+3.  **Blockchain Layer**: Smart contract `SpectroChain.sol` (written in Solidity) is deployed on a local Ganache network. It stores SHA-256 hashes of spectroscopy data.
+4.  **Application Layer**: A simple web interface (HTML/Bootstrap/JS) served by FastAPI, supporting two roles:
+    - **Manufacturer**: Register new materials.
+    - **Clinician**: Verify material authenticity.
 
-SpectroChain-Dental is a revolutionary hybrid blockchain platform that combines blockchain technology with physical spectral authentication to ensure the authenticity of dental materials. This evaluation system provides **comprehensive 100% real-time performance assessment** compared to traditional systems.
+## Technologies Used
 
-## ✨ Key Features
-
-- 🚀 **100% Real-time Calculation** - No hardcoded values, all metrics computed live
-- 🏁 **Multi-system Benchmark** - Comparative analysis of 3 systems (Centralized, Blockchain-only, SpectroChain-Dental)
-- 🛡️ **Security Penetration Testing** - STRIDE methodology with actual attack simulation
-- 🔬 **Physical Verification** - Spectral analysis with machine learning algorithms
-- 📊 **Professional Visualization** - 5 comprehensive analytical charts
-- 🎯 **Comprehensive Scoring** - Weighted metrics with normalization
-
-## 🏆 Performance Results
-
-| System                   | Overall Score | Throughput (TPS) | Physical Verification | Security Score |
-| ------------------------ | ------------- | ---------------- | --------------------- | -------------- |
-| ** SpectroChain-Dental** | **95.94/100** | 6,431.5          | **98%**               | 65/100         |
-| Blockchain Only          | 51.95/100     | 0.0              | 0%                    | 100/100        |
-| Centralized System       | 31.61/100     | 22,503.99        | 0%                    | 20/100         |
-
-**🎯 Conclusion**: SpectroChain-Dental outperforms traditional systems by **203%**!
-
-## 📂 Project Structure
-
-```
-SpectroChain-Dental/
-├── 📊 results/                    # Evaluation results
-│   ├── charts/                    # 5 professional charts
-│   ├── data/                      # JSON evaluation results
-│   └── reports/                   # Comprehensive reports
-├── 🏁 benchmarks/                 # Real-time benchmarking
-│   └── real_time/                 # Core benchmark engine
-├── 🎯 evaluation/                 # Evaluation metrics
-│   ├── metrics/                   # Performance calculations
-│   └── algorithms/                # Scoring algorithms
-├── 💾 src/                        # Core blockchain code
-├── 📁 data/                       # Raw material data
-├── 📖 docs/                       # Documentation
-└── 🧪 tests/                      # Testing framework
-```
-
-## 🚀 Quick Start
-
-### 1. Installation
-
-```bash
-# Clone repository
-git clone https://github.com/your-org/SpectroChain-Dental.git
-cd SpectroChain-Dental
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-### 2. Run Full Evaluation
-
-```bash
-# Complete evaluation (recommended)
-python run_evaluation.py
-
-# Quick benchmark only
-python run_evaluation.py --benchmark-only
-
-# Generate charts only
-python run_evaluation.py --charts-only
-
-# Show latest results
-python run_evaluation.py --show-results
-```
-
-### 3. View Results
-
-- **📊 Charts**: `results/charts/*.png`
-- **📄 Data**: `results/data/evaluation_results.json`
-- **📝 Report**: `results/reports/REAL_TIME_BENCHMARK_SUMMARY.md`
-
-## 📊 Evaluation Metrics
-
-### 🎯 Core Metrics
-
-1. **Blockchain Performance**
-
-   - Throughput (TPS) for each function
-   - Latency (ms) measurement
-   - CPU/Memory resource usage
-
-2. **Verification Accuracy**
-
-   - Hit Quality Index (HQI) > 95%
-   - ML metrics: Precision, Recall, F1-Score, AUC
-   - Physical spectral analysis accuracy
-
-3. **Security Analysis** (STRIDE)
-
-   - Spoofing Resistance
-   - Tampering Resistance
-   - Repudiation Resistance
-   - Information Disclosure Protection
-   - DoS Resistance
-   - Privilege Elevation Protection
-
-4. **Comparative Analysis**
-   - Cross-system performance comparison
-   - Oracle problem resilience
-   - Decentralized trust scoring
-
-### 🔢 Scoring Methodology
-
-```python
-weights = {
-    "throughput_tps": 0.15,           # 15% - Performance
-    "latency_ms": 0.10,               # 10% - Responsiveness
-    "data_tamper_resistance": 0.20,   # 20% - Security
-    "decentralized_trust": 0.20,      # 20% - Decentralization
-    "physical_verification": 0.25,    # 25% - Unique Feature
-    "oracle_resilience": 0.10         # 10% - Problem Solving
-}
-```
-
-## 🔬 Technical Implementation
-
-### Real-time Benchmark Systems
-
-1. **CentralizedSystem**: SQLite database with threading locks
-2. **BlockchainOnlySystem**: Pure blockchain with mining simulation
-3. **SpectroChainDentalSystem**: Hybrid with spectral verification
-
-### Security Testing
-
-- **Penetration Testing**: 100+ attack attempts
-- **Tamper Resistance**: Database/blockchain modification tests
-- **DoS Testing**: 1,000 concurrent requests
-- **Access Control**: Role-based permission validation
-
-### Physical Verification
-
-- **Material Database**: Real ceramic dental materials
-- **Spectral Analysis**: 500+ test samples
-- **ML Algorithms**: Cosine similarity, threshold validation
-- **Noise Simulation**: 0.02-0.05 variance testing
-
-## 📈 Charts Generated
-
-1. **Blockchain Performance** - 4 subplots (bar, line, area charts)
-2. **Verification Accuracy** - ML metrics, ROC curve, confusion matrix
-3. **Security Analysis** - STRIDE radar chart, threat breakdown
-4. **Comparative Analysis** - Multi-system comparison
-5. **Comprehensive Dashboard** - Overall performance overview
-
-## 🛠️ Advanced Usage
-
-### Custom Benchmark
-
-```python
-from benchmarks.real_time.benchmark_systems import RealTimeBenchmark
-
-benchmark = RealTimeBenchmark()
-results = benchmark.benchmark_system('spectrochain_dental', num_operations=1000)
-```
-
-### Custom Metrics
-
-```python
-from evaluation.metrics.performance_metrics import PerformanceEvaluator
-
-evaluator = PerformanceEvaluator()
-blockchain_metrics = evaluator.blockchain_performance_metrics()
-security_metrics = evaluator.security_analysis()
-```
-
-## 📖 Documentation
-
-- **📋 Project Structure**: [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)
-- **🏁 Benchmarks Guide**: [benchmarks/README.md](benchmarks/README.md)
-- **🎯 Evaluation Guide**: [evaluation/README.md](evaluation/README.md)
-- **📊 Results Guide**: [results/README.md](results/README.md)
-
-## 🔧 Dependencies
-
-- **Python 3.8+**
-- **NumPy, Pandas** - Data processing
-- **Matplotlib, Seaborn** - Visualization
-- **Scikit-learn** - ML metrics
-- **Psutil** - System monitoring
-- **Cryptography** - Security functions
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- SpectroChain-Dental Development Team
-- Blockchain Research Community
-- Dental Material Verification Standards
-
-## 📞 Contact
-
-- **Project Lead**: [Your Name](mailto:your.email@example.com)
-- **Repository**: [GitHub](https://github.com/your-org/SpectroChain-Dental)
-- **Documentation**: [Wiki](https://github.com/your-org/SpectroChain-Dental/wiki)
+- **Backend**: Python 3.8+ with FastAPI
+- **Blockchain**: Ethereum (simulated by Ganache)
+- **Smart Contract**: Solidity v0.8.9
+- **Blockchain Tools**: Truffle Suite, Web3.py
+- **Frontend**: HTML, Bootstrap 5, JavaScript
+- **Data**: `.csv` files in the `data/` directory.
 
 ---
 
-**Made with ❤️ by the SpectroChain-Dental Team**
+## Installation and Setup Guide
+
+### 1. Prerequisites
+
+Before starting, make sure you have installed the following tools on your machine:
+
+- **Node.js and npm**: Required to install Truffle. [Download here](https://nodejs.org/)
+- **Truffle Suite**: Ethereum development tool. Install globally using npm:
+  ```bash
+  npm install -g truffle
+  ```
+- **Ganache**: Personal blockchain environment for testing. We recommend the graphical user interface (UI) version for easy transaction monitoring. [Download here](https://trufflesuite.com/ganache/)
+- **Python 3.8+ and pip**: Environment to run the FastAPI backend. [Download here](https://www.python.org/)
+
+### 2. Project Setup
+
+**a. Clone Repository (Skip if you already have the source code)**
+
+```bash
+git clone <YOUR_REPO_URL>
+cd SpectroChain-Dental
+```
+
+**b. Install Python Libraries**
+
+Create a virtual environment (recommended) and install the required packages from the `requirements.txt` file.
+
+```bash
+# Create and activate virtual environment (example for Windows)
+python -m venv venv
+venv\Scripts\activate
+
+# Install libraries
+pip install -r requirements.txt
+```
+
+### 3. Run Blockchain
+
+**a. Start Ganache**
+
+Open the Ganache application you installed. Create a new "Quickstart" workspace. Ganache will initialize a local blockchain network, usually running at `HTTP://127.0.0.1:7545`, with 10 accounts each having 100 ETH.
+
+**b. Compile and Deploy Smart Contract**
+
+Open a new terminal, navigate to the `blockchain` directory and run the `truffle migrate` command.
+
+```bash
+cd blockchain
+truffle migrate --reset
+```
+
+This command will:
+
+1.  Compile the `SpectroChain.sol` contract into ABI and bytecode.
+2.  Deploy the contract to the running Ganache network.
+3.  Save the ABI and contract address information to the `blockchain/build/contracts/` directory.
+
+After successful execution, you will see output similar to:
+
+```
+...
+2_deploy_contracts.js
+=====================
+
+   Deploying 'SpectroChain'
+   ------------------------
+   > transaction hash:    0x...
+   > Blocks: 2            Seconds: 0
+   > contract address:    0xAbCdEf1234567890...  <-- THIS IS THE IMPORTANT ADDRESS
+   > block number:        3
+   ...
+```
+
+### 4. Configure Backend
+
+Now you need to update the backend so it knows the address of the deployed smart contract.
+
+**a. Get contract address:**
+
+Copy the `contract address` value from the `truffle migrate` command result.
+
+**b. Update configuration file:**
+
+Open file `SpectroChain-Dental/backend/app/blockchain.py` and find the following line:
+
+```python
+CONTRACT_ADDRESS = "YOUR_CONTRACT_ADDRESS"  # <-- IMPORTANT: UPDATE THIS
+```
+
+Replace `"YOUR_CONTRACT_ADDRESS"` with the contract address you just copied. For example:
+
+```python
+CONTRACT_ADDRESS = "0xAbCdEf1234567890..."
+```
+
+Save the file. This file also automatically loads the ABI from `blockchain/build/contracts/SpectroChain.json`, so you don't need to manually copy the ABI.
+
+### 5. Run Backend Server
+
+Return to the main terminal (where you activated the Python virtual environment), navigate to the `backend` directory and start the FastAPI server using `uvicorn`.
+
+```bash
+cd backend
+uvicorn app.main:app --reload
+```
+
+The server will start and usually run at `http://127.0.0.1:8000`. You will see startup logs, including notifications that the ABI has been loaded and successful connection to Ganache.
+
+### 6. Use the Application
+
+**a. Open browser:**
+
+Access `http://127.0.0.1:8000`. You will see the SpectroChain web interface.
+
+**b. Register Material (Manufacturer)**
+
+1.  In the "Manufacturer" section, enter `Product ID` and `Batch ID`. For example:
+    - Product ID: `PRODUCT-A`
+    - Batch ID: `BATCH-001`
+2.  Click "Choose File" and select one of the simulated data files from the `data/` directory (e.g., `product_A.csv`).
+3.  Click the "Register on Blockchain" button.
+4.  Wait a moment for the transaction to be processed. The result will be displayed in the "Result" box, including the data hash and transaction hash (Tx Hash).
+
+**c. Verify Material (Clinician)**
+
+1.  In the "Clinician" section, enter the `Product ID` you just registered (e.g., `PRODUCT-A`).
+2.  Click "Choose File" and select the **correct** file `product_A.csv` again.
+3.  Click the "Verify Authenticity" button.
+    - **Expected result**: "Verified" status in green, because the hash of the uploaded file matches the hash stored on the blockchain.
+4.  Now, try verifying again with a different file (e.g., `product_B.csv`) for the same `PRODUCT-A`.
+    - **Expected result**: "Failed" status in yellow/orange, because the hash of `product_B.csv` doesn't match the stored hash of `PRODUCT-A`.
+
+Congratulations! You have successfully installed and tested the MVP system!

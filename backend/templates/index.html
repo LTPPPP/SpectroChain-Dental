@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SpectroChain Dental</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 960px;
+        }
+
+        .card {
+            margin-bottom: 2rem;
+        }
+
+        .result-box {
+            display: none;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            word-wrap: break-word;
+        }
+
+        .spinner-border {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+        <header class="text-center mb-5">
+            <h1>SpectroChain Dental MVP</h1>
+            <p class="lead text-muted">A simplified system for tracing dental materials using Blockchain and Raman
+                Spectroscopy.</p>
+        </header>
+
+        <div class="row">
+            <!-- Manufacturer Role -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M20 16.5v-11a2 2 0 0 0-2-2h-12a2 2 0 0 0-2 2v11m16 0H4m16 0 1.28 2.56a1 1 0 0 1-.9 1.44H3.62a1 1 0 0 1-.9-1.44L4 16.5z">
+                                </path>
+                            </svg> Manufacturer: Register Material</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="registerForm">
+                            <div class="mb-3">
+                                <label for="regProductID" class="form-label">Product ID</label>
+                                <input type="text" class="form-control" id="regProductID"
+                                    placeholder="e.g., DENTAL-COMPOSITE-A1" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="regBatchID" class="form-label">Batch ID</label>
+                                <input type="text" class="form-control" id="regBatchID"
+                                    placeholder="e.g., BATCH-20240521-001" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="regFile" class="form-label">Raman Data File (.csv)</label>
+                                <input class="form-control" type="file" id="regFile" accept=".csv" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Register on Blockchain
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clinician Role -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="m9 12 2 2 4-4"></path>
+                            </svg> Clinician: Verify Material</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="verifyForm">
+                            <div class="mb-3">
+                                <label for="verProductID" class="form-label">Product ID</label>
+                                <input type="text" class="form-control" id="verProductID"
+                                    placeholder="e.g., DENTAL-COMPOSITE-A1" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="verFile" class="form-label">Raman Data File (.csv)</label>
+                                <input class="form-control" type="file" id="verFile" accept=".csv" required>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Verify Authenticity
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Display -->
+        <div class="card">
+            <div class="card-header">
+                <h4>Result</h4>
+            </div>
+            <div class="card-body">
+                <div id="resultBox" class="result-box">
+                    <!-- Results will be injected here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const registerForm = document.getElementById('registerForm');
+        const verifyForm = document.getElementById('verifyForm');
+        const resultBox = document.getElementById('resultBox');
+
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const button = registerForm.querySelector('button[type="submit"]');
+            const spinner = button.querySelector('.spinner-border');
+
+            setLoading(button, spinner, true);
+
+            const formData = new FormData();
+            formData.append('productID', document.getElementById('regProductID').value);
+            formData.append('batchID', document.getElementById('regBatchID').value);
+            formData.append('file', document.getElementById('regFile').files[0]);
+
+            try {
+                const response = await fetch('/register', {
+                    method: 'POST',
+                    body: formData,
+                });
+                const result = await response.json();
+
+                if (response.ok) {
+                    displayResult('success', `<strong>Success!</strong> Material registered.<br><strong>Hash:</strong> ${result.hash}<br><strong>Tx Hash:</strong> ${result.transaction_hash}`);
+                } else {
+                    displayResult('danger', `<strong>Error:</strong> ${result.detail || 'An unknown error occurred.'}`);
+                }
+            } catch (error) {
+                displayResult('danger', `<strong>Network or Server Error:</strong> ${error.message}`);
+            } finally {
+                setLoading(button, spinner, false);
+            }
+        });
+
+        verifyForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const button = verifyForm.querySelector('button[type="submit"]');
+            const spinner = button.querySelector('.spinner-border');
+
+            setLoading(button, spinner, true);
+
+            const formData = new FormData();
+            formData.append('productID', document.getElementById('verProductID').value);
+            formData.append('file', document.getElementById('verFile').files[0]);
+
+            try {
+                const response = await fetch('/verify', {
+                    method: 'POST',
+                    body: formData,
+                });
+                const result = await response.json();
+
+                if (response.ok) {
+                    if (result.status === 'Verified') {
+                        displayResult('success', `<strong>Status: ${result.status}</strong><br>${result.message}<br><small><strong>Live Hash:</strong> ${result.liveHash}<br><strong>Stored Hash:</strong> ${result.storedHash}</small>`);
+                    } else {
+                        displayResult('warning', `<strong>Status: ${result.status}</strong><br>${result.message}<br><small><strong>Live Hash:</strong> ${result.liveHash}<br><strong>Stored Hash:</strong> ${result.storedHash || 'N/A'}</small>`);
+                    }
+                } else {
+                    displayResult('danger', `<strong>Error:</strong> ${result.detail || 'An unknown error occurred.'}`);
+                }
+            } catch (error) {
+                displayResult('danger', `<strong>Network or Server Error:</strong> ${error.message}`);
+            } finally {
+                setLoading(button, spinner, false);
+            }
+        });
+
+        function displayResult(type, message) {
+            resultBox.innerHTML = message;
+            resultBox.className = `result-box bg-${type}-light text-dark`;
+            resultBox.style.display = 'block';
+        }
+
+        function setLoading(button, spinner, isLoading) {
+            if (isLoading) {
+                spinner.style.display = 'inline-block';
+                button.disabled = true;
+            } else {
+                spinner.style.display = 'none';
+                button.disabled = false;
+            }
+        }
+    </script>
+</body>
+
+</html>
