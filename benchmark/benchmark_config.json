@@ -1,0 +1,80 @@
+{
+  "performance": {
+    "blockchain_url": "http://127.0.0.1:7545",
+    "backend_url": "http://127.0.0.1:8000",
+    "test_duration": 300,
+    "concurrent_users": [1, 5, 10, 20, 50],
+    "test_scenarios": ["register", "verify", "mixed"],
+    "tps_target": 100,
+    "latency_target_ms": 500,
+    "resource_threshold": {
+      "cpu_percent": 80,
+      "memory_percent": 80
+    }
+  },
+  "security": {
+    "attack_types": ["selfish_mining", "double_spending", "eclipse"],
+    "threshold_tests": [0.1, 0.25, 0.33, 0.5],
+    "network_analysis": true,
+    "stride_analysis": true,
+    "consensus_tests": true,
+    "vulnerability_scan": true,
+    "security_target_score": 0.8
+  },
+  "accuracy": {
+    "test_data_path": "../data/",
+    "models": ["svm", "random_forest", "neural_network"],
+    "cross_validation_folds": 5,
+    "metrics": ["precision", "recall", "f1", "accuracy"],
+    "accuracy_target": 0.9,
+    "verification_target": 0.95,
+    "synthetic_data": {
+      "enable": true,
+      "samples": 1000,
+      "features": 50,
+      "classes": 5
+    }
+  },
+  "monitoring": {
+    "system_metrics": true,
+    "blockchain_metrics": true,
+    "application_metrics": true,
+    "continuous_monitoring": false,
+    "monitoring_interval": 60
+  },
+  "output": {
+    "results_dir": "results",
+    "generate_html_report": true,
+    "generate_pdf_report": false,
+    "generate_dashboard": true,
+    "save_raw_data": true,
+    "create_visualizations": true
+  },
+  "thresholds": {
+    "performance_grade": {
+      "A": 0.8,
+      "B": 0.6,
+      "C": 0.4,
+      "D": 0.0
+    },
+    "security_grade": {
+      "A": 0.9,
+      "B": 0.7,
+      "C": 0.5,
+      "D": 0.0
+    },
+    "accuracy_grade": {
+      "A+": 0.95,
+      "A": 0.90,
+      "B": 0.80,
+      "C": 0.70,
+      "D": 0.0
+    }
+  },
+  "experimental": {
+    "chaos_engineering": false,
+    "load_testing": true,
+    "penetration_testing": false,
+    "machine_learning_optimization": true
+  }
+}

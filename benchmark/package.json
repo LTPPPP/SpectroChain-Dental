@@ -1,0 +1,30 @@
+{
+  "name": "spectrochain-benchmark",
+  "version": "1.0.0",
+  "description": "Benchmark suite for SpectroChain-Dental system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "benchmark": "python main.py",
+    "caliper": "npx caliper launch manager",
+    "install-caliper": "npm install @hyperledger/caliper-cli @hyperledger/caliper-core @hyperledger/caliper-ethereum"
+  },
+  "keywords": [
+    "blockchain",
+    "benchmark",
+    "spectroscopy",
+    "dental",
+    "performance",
+    "security"
+  ],
+  "author": "SpectroChain Team",
+  "license": "MIT",
+  "dependencies": {
+    "@hyperledger/caliper-cli": "^0.5.0",
+    "@hyperledger/caliper-core": "^0.5.0",
+    "@hyperledger/caliper-ethereum": "^0.5.0"
+  },
+  "devDependencies": {
+    "ganache-cli": "^6.12.2"
+  }
+}
